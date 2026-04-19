@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小耳朵听写</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>小耳朵听写</h1>
+            <div class="user-info" id="userInfo">
+                <span id="usernameDisplay"></span>
+                <button id="loginBtn" onclick="window.location.href='login.html'">登录</button>
+                <button id="registerBtn" onclick="window.location.href='register.html'">注册</button>
+                <button id="logoutBtn" onclick="logout()" style="display: none;">登出</button>
+            </div>
+        </div>
+        
+        <div class="input-section" id="inputSection">
+            <label for="words">请输入要听写的词语（用空格分隔）：</label>
+            <textarea id="words" placeholder="例如：白鹭 精巧 配合 身段 适宜 白鹤 生硬 寻常 忘却 镜匣"></textarea>
+            <div class="controls">
+                <button class="start-btn" onclick="startDictation()">开始听写</button>
+                <button class="stop-btn" onclick="stopDictation()">停止</button>
+                <button class="reset-btn" onclick="resetDictation()">重置</button>
+                <button class="history-btn" onclick="showHistory()">历史记录</button>
+            </div>
+        </div>
+        
+        <div class="status-section" id="status-section">
+            <div class="current-status" id="currentStatus">准备开始</div>
+            <div class="timer" id="timer" style="display: none;">10</div>
+        </div>
+        
+        <div class="word-list" id="wordListContainer">
+            <h3>已输入的词语：</h3>
+            <ul id="wordList"></ul>
+        </div>
+        
+        <div class="history-section" id="historySection" style="display: none;">
+            <h3>听写历史</h3>
+            <div id="historyList"></div>
+            <button class="back-btn" onclick="showMain()">返回</button>
+        </div>
+    </div>
+    
+    <script src="js/speech.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
